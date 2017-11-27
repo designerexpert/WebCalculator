@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Basic Calculator</title>
+    <meta name="description" content="A basic calculator leveraging HTML5 and JavaScript">
+    <meta name="author" content="Moises Dobarganes, Yanisleidy Arias Hernandez">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="body">
+    <center>
+        <div class="calculatorDiv">
+            <div class="MsgScreenDiv">
+                <input type="text" id="MsgScreen" class="MsgScreen" disabled=true>
+            </div>
+            <div class="screenDiv">
+                <input type="text" id="screen" class="screen">
+            </div>
+            <div class=numButtons>
+                <table>
+                    <tr>
+                        <td>
+                            <button id="button1" class=numberButton onclick="addToScreen(1)">1</button>
+                        </td>
+                        <td>
+                            <button id="button2" class=numberButton onclick="addToScreen(2)">2</button>
+                        </td>
+                        <td>
+                            <button id="button3" class=numberButton onclick="addToScreen(3)">3</button>
+                        </td>
+                        <td>
+                            <button id="buttonPlus" class=numberButton onclick="addOperator('+')">+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="button4" class=numberButton onclick="addToScreen(4)">4</button>
+                        </td>
+                        <td>
+                            <button id="button5" class=numberButton onclick="addToScreen(5)">5</button>
+                        </td>
+                        <td>
+                            <button id="button6" class=numberButton onclick="addToScreen(6)">6</button>
+                        </td>
+                        <td>
+                            <button id="buttonMinus" class=numberButton onclick="addOperator('-')">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="button7" class=numberButton onclick="addToScreen(7)">7</button>
+                        </td>
+                        <td>
+                            <button id="button8" class=numberButton onclick="addToScreen(8)">8</button>
+                        </td>
+                        <td>
+                            <button id="button9" class=numberButton onclick="addToScreen(9)">9</button>
+                        </td>
+                        <td>
+                            <button id="buttonMult" class=numberButton onclick="addOperator('*')">*</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="buttonDot" class=numberButton onclick="addPeriod()">.</button>
+                        </td>
+                        <td>
+                            <button id="button0" class=numberButton onclick="addToScreen(0)">0</button>
+                        </td>
+                        <td>
+                            <button id="buttonDel" class=numberButton onclick="remFromScreen()">Del</button>
+                        </td>
+                        <td>
+                            <button id="buttonDiv" class=numberButton onclick="addOperator('/')">/</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <tr>
+                <td>
+                    <button class=enterButton onclick="resetCalc()"> CLEAR </button>
+                </td>
+            </tr>
+
+        </div>
+    </center>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

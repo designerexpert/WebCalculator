@@ -1,0 +1,276 @@
+<html>
+
+<head>
+    <title>Basic Calculator</title>
+    <meta name="description" content="A basic calculator leveraging HTML5 and JavaScript">
+    <meta name="author" content="Moises Dobarganes, Yanisleidy Arias Hernandez">
+    <style>
+        .calculatorDiv {
+            width: 512px;
+            height: 592px;
+            padding: 10px;
+            border: 3px solid rgb(17, 24, 34);
+            background-color: rgb(101, 116, 136);
+        }
+
+        .body {
+            position: relative;
+        }
+
+        .screenDiv {
+            width: 470px;
+            height: 90px;
+            padding: 10px;
+        }
+
+        .screen {
+            width: 470px;
+            height: 90px;
+            text-align: center;
+            background-color: rgb(1, 12, 9);
+            font-size: 40px;
+            color: rgb(36, 177, 48);
+        }
+
+        .MsgScreenDiv {
+            width: 470px;
+            height: 50px;
+            padding: 10px;
+        }
+
+        .MsgScreen {
+            width: 470px;
+            height: 50px;
+            text-align: center;
+            background-color: rgb(1, 12, 9);
+            font-size: 20px;
+            color: rgb(36, 177, 48);
+        }
+
+        .numButtons {
+            padding-top: 10px;
+            width: 330px;
+            height: 290px;
+            position: relative;
+            border: 3px solid rgb(42, 60, 85);
+        }
+
+        .numberButton {
+            text-align: center;
+            width: 70px;
+            height: 65px;
+            font-size: 30px;
+        }
+
+        .enterButton {
+            text-align: center;
+            width: 330px;
+            height: 80px;
+            margin-top: 10px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <center>
+        <div class="calculatorDiv">
+            <div class="MsgScreenDiv">
+                <input type="text" id="MsgScreen" class="MsgScreen" disabled=true>
+            </div>
+            <div class="screenDiv">
+                <input type="text" id="screen" class="screen">
+            </div>
+            <div class=numButtons>
+                <table>
+                    <tr>
+                        <td>
+                            <button id="button1" class=numberButton onclick="addToScreen(1)">1</button>
+                        </td>
+                        <td>
+                            <button id="button2" class=numberButton onclick="addToScreen(2)">2</button>
+                        </td>
+                        <td>
+                            <button id="button3" class=numberButton onclick="addToScreen(3)">3</button>
+                        </td>
+                        <td>
+                            <button id="buttonPlus" class=numberButton onclick="addOperator('+')">+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="button4" class=numberButton onclick="addToScreen(4)">4</button>
+                        </td>
+                        <td>
+                            <button id="button5" class=numberButton onclick="addToScreen(5)">5</button>
+                        </td>
+                        <td>
+                            <button id="button6" class=numberButton onclick="addToScreen(6)">6</button>
+                        </td>
+                        <td>
+                            <button id="buttonMinus" class=numberButton onclick="addOperator('-')">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="button7" class=numberButton onclick="addToScreen(7)">7</button>
+                        </td>
+                        <td>
+                            <button id="button8" class=numberButton onclick="addToScreen(8)">8</button>
+                        </td>
+                        <td>
+                            <button id="button9" class=numberButton onclick="addToScreen(9)">9</button>
+                        </td>
+                        <td>
+                            <button id="buttonMult" class=numberButton onclick="addOperator('*')">*</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="buttonDot" class=numberButton onclick="addPeriod()">.</button>
+                        </td>
+                        <td>
+                            <button id="button0" class=numberButton onclick="addToScreen(0)">0</button>
+                        </td>
+                        <td>
+                            <button id="buttonDel" class=numberButton onclick="remFromScreen()">Del</button>
+                        </td>
+                        <td>
+                            <button id="buttonDiv" class=numberButton onclick="addOperator('/')">/</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <tr>
+                <td>
+                    <button class=enterButton onclick="resetCalc()"> CLEAR </button>
+                </td>
+            </tr>
+
+        </div>
+    </center>
+    <script>
+        const screen = document.getElementById('screen');
+        const printScreen = document.getElementById('MsgScreen');
+
+        let opNumbers = [];
+        let current = 0;
+        let opSign;
+        let result;
+        screen.value = 0;
+        printScreen.value = 0;
+        // print(currentNumber);
+        const resetCalc = () => {
+            opNumbers = [];
+            current = 0;
+            opSign;
+            result;
+            screen.value = 0;
+            printScreen.value = 0;
+        }
+
+        const updateScreen = () => {
+            if (current >= 2) {
+                if (opSign === '+') {
+                    opNumbers[0] = result;
+                    printScreen.value = opNumbers[0];
+                    opNumbers.pop();
+                    screen.value = 0;
+                }
+                if (opSign === '*') {
+                    opNumbers[0] = result;
+                    printScreen.value = opNumbers[0];
+                    opNumbers.pop();
+                    screen.value = 0;
+                }
+                if (opSign === '/') {
+                    opNumbers[0] = result;
+                    printScreen.value = opNumbers[0];
+                    opNumbers.pop();
+                    screen.value = 0;
+                }
+                if (opSign === '-') {
+                    opNumbers[0] = result;
+                    printScreen.value = opNumbers[0];
+                    opNumbers.pop();
+                    screen.value = 0;
+                }
+                current = 1;
+            }
+            if (opNumbers.length === 1 && opSign !== undefined) {
+                return printScreen.value = `${opNumbers[0]} ${opSign}`;
+            }
+            if (opNumbers.length === 1 && opSign === undefined) {
+                return printScreen.value = `${opNumbers[0]}`;
+            }
+            if (opNumbers.length === 2 && current === 1) {
+                if (opSign === '+') {
+                    printScreen.value = `${opNumbers[0]} ${opSign} ${opNumbers[1]} = ` + (opNumbers[0] + opNumbers[1]);
+                    result = opNumbers[0] + opNumbers[1];
+                    return;
+                }
+                if (opSign === '*') {
+                    printScreen.value = `${opNumbers[0]} ${opSign} ${opNumbers[1]} = ` + (opNumbers[0] * opNumbers[1]);
+                    result = opNumbers[0] * opNumbers[1];
+                    return;
+                }
+                if (opSign === '/') {
+                    printScreen.value = `${opNumbers[0]} ${opSign} ${opNumbers[1]} = ` + (opNumbers[0] / opNumbers[1]);
+                    result = opNumbers[0] / opNumbers[1];
+                    return;
+                }
+                if (opSign === '-') {
+                    printScreen.value = `${opNumbers[0]} ${opSign} ${opNumbers[1]} = ` + (opNumbers[0] - opNumbers[1]);
+                    result = opNumbers[0] - opNumbers[1];
+                    return;
+                }
+            }
+        }
+
+        const addToScreen = (evt) => {
+            let add = evt.toString();
+            if (screen.value === '0') {
+                opNumbers[current] = Number(`${add}`);
+                screen.value = add;
+                updateScreen();
+            } else {
+                opNumbers[current] = Number(`${screen.value}${add}`);
+                screen.value = `${screen.value}${add}`;
+                updateScreen();
+            }
+        }
+
+        const addPeriod = () => {
+            let add = '.';
+            let currentNumber = screen.value.split('');
+            if (currentNumber.includes('.')) {
+                screen.value = screen.value;
+            } else {
+                opNumbers[current] = Number(`${screen.value}.`);
+                screen.value += '.';
+            }
+        }
+
+        const remFromScreen = () => {
+            let currentNumber = screen.value.split('');
+            if (currentNumber.length === 0) return;
+            currentNumber.pop();
+
+            let numPop = opNumbers[current].toString().split(''); // Break the current element in opNumbers aray into an arary of strings.
+            numPop.pop(); // remove the last member.
+            opNumbers[current] = Number(numPop.join('')); // assign opNumbers the Joined version of the array without the last element in it.
+            screen.value = currentNumber.join(''); // change the main screen's message
+            updateScreen(); // Update the result screen.
+
+        }
+
+        const addOperator = (mOperator) => {
+            opSign = mOperator;
+            current++;
+            screen.value = 0;
+            updateScreen();
+        }
+    </script>
+</body>
+
+</html>
