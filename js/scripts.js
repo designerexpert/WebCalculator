@@ -1,5 +1,5 @@
 const screen = document.getElementById('screen');
-const printScreen = document.getElementById('MsgScreen');
+const printScreen = document.getElementById('msgScreen');
 
 let opNumbers = [];
 let current = 0;
