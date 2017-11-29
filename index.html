@@ -5,38 +5,39 @@
     <meta charset="UTF-8">
     <meta name="description" content="A basic calculator leveraging HTML5, CSS and JavaScript">
     <meta name="author" content="Moises Dobarganes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Basic Calculator</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-        <div class="container">
-            <div class="msgScreenDiv">
-                <input type="text" id="msgScreen" class="msgScreen" disabled=true>
-            </div>
-            <div class="screenDiv">
-                <input type="text" id="screen" class="screen">
-            </div>
-            <div class=numButtons>
-               <button class="button" onclick="addToScreen(1)">1</button>
-               <button class="button" onclick="addToScreen(2)">2</button>
-               <button class="button" onclick="addToScreen(3)">3</button>
-               <button class="button" onclick="addOperator('+')">+</button>
-               <button class="button" onclick="addToScreen(4)">4</button>
-               <button class="button" onclick="addToScreen(5)">5</button>
-               <button class="button" onclick="addToScreen(6)">6</button>
-               <button class="button" onclick="addOperator('-')">-</button>
-               <button class="button" onclick="addToScreen(7)">7</button>
-               <button class="button" onclick="addToScreen(8)">8</button>
-               <button class="button" onclick="addToScreen(9)">9</button>
-               <button class="button" onclick="addOperator('*')">*</button>
-               <button class="button" onclick="addPeriod()">.</button>
-               <button class="button" onclick="addToScreen(0)">0</button>
-               <button class="button" onclick="remFromScreen()">Del</button>
-               <button class="button" onclick="addOperator('/')">/</button>
-               <button class=enterButton onclick="resetCalc()"> CLEAR </button>
-            </div>
+    <div class="container">
+        <div class="msgScreenDiv">
+            <input type="text" id="msgScreen" class="msgScreen" disabled=true>
         </div>
+        <div class="screenDiv">
+            <input type="text" id="screen" class="screen">
+        </div>
+        <div class=numButtons>
+            <button class="button" onclick="addToScreen(1)">1</button>
+            <button class="button" onclick="addToScreen(2)">2</button>
+            <button class="button" onclick="addToScreen(3)">3</button>
+            <button class="button" onclick="addOperator('+')">+</button>
+            <button class="button" onclick="addToScreen(4)">4</button>
+            <button class="button" onclick="addToScreen(5)">5</button>
+            <button class="button" onclick="addToScreen(6)">6</button>
+            <button class="button" onclick="addOperator('-')">-</button>
+            <button class="button" onclick="addToScreen(7)">7</button>
+            <button class="button" onclick="addToScreen(8)">8</button>
+            <button class="button" onclick="addToScreen(9)">9</button>
+            <button class="button" onclick="addOperator('*')">*</button>
+            <button class="button" onclick="addPeriod()">.</button>
+            <button class="button" onclick="addToScreen(0)">0</button>
+            <button class="button" onclick="remFromScreen()">Del</button>
+            <button class="button" onclick="addOperator('/')">/</button>
+            <button class=enterButton onclick="resetCalc()"> CLEAR </button>
+        </div>
+    </div>
     <script src="js/scripts.js"></script>
 </body>
 
